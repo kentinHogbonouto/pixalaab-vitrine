@@ -37,3 +37,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 # afialab.backoffice
 # afialab.backoffice.prod
 # pixalaab-vitrine
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details..
+# afialab.backoffice
+# afialab.backoffice.prod
+# pixalaab-vitrine
