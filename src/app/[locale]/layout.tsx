@@ -4,10 +4,9 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-
-export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "fr" }];
-}
+import { Footer } from "@/components/ui/Footer";
+import { Header } from "@/components/ui/Header";
+import { QueryProvider } from "@/lib/queryClient";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,28 +23,33 @@ export const metadata: Metadata = {
   description:
     "Transformez votre vision digitale en réalité avec Pixalaab Technologie. Développement web, applications mobiles, transformation digitale et UX/UI design pour propulser votre entreprise.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icons/logo.jpg",
   },
 };
 
-export default async function RootLayout({
+export default async function ModernLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }>) {
-  const { locale } = await Promise.resolve(params);
+  const { locale } = await params;
   const messages = await getMessages({ locale });
+  
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-sm sm:text-base lg:text-lg`}
       >
-        <Toaster />
-            <NextIntlClientProvider locale={locale} messages={messages}>
-              {children}
-            </NextIntlClientProvider>
+        <QueryProvider>
+          <Header />
+          <Toaster />
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+          <Footer />
+        </QueryProvider>
       </body>
     </html>
   );
