@@ -41,7 +41,7 @@ export default async function SimpleLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-sm sm:text-base lg:text-lg`}
       >
         <Toaster />
         <NextIntlClientProvider locale={locale} messages={messages}>
