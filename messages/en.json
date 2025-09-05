@@ -1,3 +1,220 @@
 {
-  "AuthLayout": {}
+  "header": {
+    "home": "Home",
+    "services": "Services",
+    "why-choose-us": "Why Choose Us",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Transform your digital vision into reality with innovative and performant solutions",
+    "description": "Develop your business with our web development, mobile applications and digital transformation services tailored to your needs.",
+    "cta-primary": "Start my project",
+    "cta-secondary": "Discover our services",
+    "active-members": "Active 2k Members",
+    "projects-in-progress": "50+ Projects in progress",
+    "dedicated-team": "40+ Dedicated team"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete digital solutions to transform your business and accelerate your growth",
+    "active-services": "Active services",
+    "services-count": "6+ Services",
+    "support": "24/7 Support",
+    "learn-more": "Learn more",
+    "custom-solution-title": "Need a custom solution?",
+    "custom-solution-description": "Our experts are here to help you realize your digital project. Contact us for a personalized quote.",
+    "discuss-project": "Discuss your project",
+    "web-development": {
+      "title": "Web Development",
+      "description": "Showcase sites, e-commerce and custom web applications with the most modern technologies.",
+      "features": ["React/Next.js", "E-commerce", "REST API", "Responsive Design"]
+    },
+    "mobile-apps": {
+      "title": "Mobile Applications",
+      "description": "Native or cross-platform iOS and Android applications to maximize your mobile presence.",
+      "features": ["React Native", "Flutter", "iOS/Android", "PWA"]
+    },
+    "desktop-apps": {
+      "title": "Desktop Applications",
+      "description": "Custom application development for Windows, Mac and Linux to optimize your work environments.",
+      "features": ["Electron.js", "C++/C#", "Java", "Multi-OS"]
+    },
+    "iot": {
+      "title": "Internet of Things (IoT)",
+      "description": "Development of connected systems to improve your services, products and infrastructures.",
+      "features": ["Home automation", "Smart sensors", "Connected objects", "Cloud integration"]
+    },
+    "ux-ui-design": {
+      "title": "UX/UI Design",
+      "description": "Intuitive user interfaces and memorable digital experiences for your users.",
+      "features": ["Design System", "Prototyping", "User testing", "Accessibility"]
+    },
+    "digital-transformation": {
+      "title": "Digital Transformation",
+      "description": "Complete support in the digitalization of your business processes and organization.",
+      "features": ["Digital audit", "Strategy", "Training", "Support"]
+    },
+    "strategic-consulting": {
+      "title": "Strategic Consulting",
+      "description": "Digital strategy expertise to optimize your digital presence and ROI.",
+      "features": ["Audit", "Roadmap", "Analytics", "Optimization"]
+    },
+    "artificial-intelligence": {
+      "title": "Artificial Intelligence",
+      "description": "AI-based solutions to automate, analyze and create added value from your data and processes.",
+      "features": ["Machine Learning", "Chatbots", "Computer vision", "NLP"]
+    },
+    "big-data-analytics": {
+      "title": "Big Data & Analytics",
+      "description": "Exploitation of your massive data to generate strategic insights and boost your performance.",
+      "features": ["Data Mining", "ETL", "Tableau/Power BI", "Forecasting"]
+    },
+    "blockchain": {
+      "title": "Blockchain",
+      "description": "Development of blockchain-based solutions for more transparency, traceability and security.",
+      "features": ["Smart Contracts", "Crypto Wallets", "NFT", "DApps"]
+    },
+    "cybersecurity": {
+      "title": "Cybersecurity",
+      "description": "Advanced protection of your systems, data and users against digital threats.",
+      "features": ["Security audit", "Pentesting", "Network security", "GDPR compliance"]
+    },
+    "maintenance-support": {
+      "title": "Maintenance & Support",
+      "description": "Continuous maintenance and technical support services to guarantee the performance of your solutions.",
+      "features": ["Monitoring", "Security", "Updates", "24/7 Support"]
+    }
+  },
+  "why-choose-us": {
+    "title": "Why Choose Pixalaab?",
+    "subtitle": "Our commitment: accompany you towards digital success with expertise, innovation and measurable results",
+    "in-development": "In development",
+    "key-figures": "Our Key Figures",
+    "key-figures-subtitle": "Proof of our expertise in numbers",
+    "methodology": "Our Methodology",
+    "expertise": {
+      "title": "Sharp Expertise",
+      "description": "A team of passionate experts with more than 10 years of experience in digital development."
+    },
+    "modern-technologies": {
+      "title": "Modern Technologies",
+      "description": "Use of the latest technologies and frameworks for performant and scalable solutions."
+    },
+    "fast-delivery": {
+      "title": "Fast Delivery",
+      "description": "Respect of deadlines and agile methodologies for delivery within the given timeframes."
+    },
+    "guaranteed-quality": {
+      "title": "Guaranteed Quality",
+      "description": "Rigorous testing and quality code for robust and secure applications."
+    },
+    "stats": {
+      "projects-completed": "Projects Completed",
+      "satisfied-clients": "Satisfied Clients",
+      "response-time": "Response Time",
+      "years-experience": "Years of Experience"
+    },
+    "process": {
+      "discovery": {
+        "title": "Discovery",
+        "description": "Analysis of your needs and business objectives"
+      },
+      "conception": {
+        "title": "Conception",
+        "description": "Technical architecture and interface design"
+      },
+      "development": {
+        "title": "Development",
+        "description": "Coding and integration according to best practices"
+      },
+      "delivery": {
+        "title": "Delivery",
+        "description": "Testing, deployment and user training"
+      }
+    }
+  },
+  "contact": {
+    "title": "Ready to transform your business?",
+    "subtitle": "Contact us to discuss your project and receive a personalized quote within 24h",
+    "active-contact": "Active contact",
+    "response-time": "Response",
+    "free": "Free",
+    "quote-title": "Request a free quote",
+    "form": {
+      "firstName": "First Name *",
+      "lastName": "Last Name *",
+      "email": "Email *",
+      "company": "Company (optional)",
+      "service": "Desired Service *",
+      "message": "Message *",
+      "firstName-placeholder": "Your first name",
+      "lastName-placeholder": "Your last name",
+      "email-placeholder": "your@email.com",
+      "company-placeholder": "Your company name",
+      "service-placeholder": "Select a service",
+      "message-placeholder": "Describe your project, objectives and needs...",
+      "sending": "Sending...",
+      "submit": "Receive a response within 24h"
+    },
+    "services": {
+      "info": "General information request",
+      "web": "Web Development",
+      "mobile": "Mobile Applications",
+      "desktop": "Desktop Applications (Windows, Mac, Linux)",
+      "iot": "Internet of Things (IoT)",
+      "design": "UX/UI Design",
+      "digital": "Digital Transformation",
+      "consulting": "Strategic Consulting",
+      "ai": "Artificial Intelligence (AI)",
+      "bigdata": "Big Data & Analytics",
+      "blockchain": "Blockchain",
+      "cybersecurity": "Cybersecurity",
+      "maintenance": "Maintenance & Support"
+    }
+  },
+  "footer": {
+    "description": "Your trusted digital partner to transform your vision into reality. Web development, mobile applications and digital transformation.",
+    "services-title": "Our Services",
+    "contact-title": "Contact",
+    "copyright": "© 2024 Pixalaab Technologie. All rights reserved.",
+    "legal": {
+      "terms": "Legal notices",
+      "privacy": "Privacy policy",
+      "conditions": "Terms of use"
+    }
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "search": "Search",
+    "update": "Update",
+    "view": "View",
+    "create": "Create",
+    "uploading": "Uploading",
+    "bold": "Bold",
+    "italic": "Italic",
+    "underline": "Underline",
+    "undo": "Undo",
+    "highlight": "Highlight",
+    "link": "Link",
+    "h3": "Title 3",
+    "h2": "Title 2",
+    "h1": "Title 1",
+    "strikethrough": "Strikethrough",
+    "upload-failed": "Upload failed",
+    "error": "Error",
+    "fetchFailed": "An error occurred while fetching data.",
+    "retry": "Retry",
+    "uploadFailed": "Upload failed",
+    "actions": "Actions",
+    "redo": "Redo",
+    "forbidden": "Unauthorized action",
+    "select-option": "Select an option",
+    "action-failed": "An error occurred.",
+    "apply": "Apply"
+  }
 }

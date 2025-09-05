@@ -8,8 +8,11 @@ import {
   CheckCircle
 } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export function HeroSection() {
+  const t = useTranslations();
+  
   return (
     <section className="relative min-h-[85vh] flex items-center bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
@@ -29,9 +32,7 @@ export function HeroSection() {
                     transition={{ duration: 0.8, delay: 0.4 }}
             >
               <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Transformez votre vision digitale en réalité avec des solutions 
-                <span className="text-red-500"> innovantes</span> et 
-                <span className="text-red-500"> performantes</span>
+                {t('hero.title')}
                 </h1>
           </motion.div>
           
@@ -42,8 +43,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
               className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed max-w-lg"
           >
-              Développez votre entreprise avec nos services de développement web, 
-              applications mobiles et transformation digitale sur mesure.
+              {t('hero.description')}
           </motion.p>
 
             {/* CTA Buttons */}
@@ -62,7 +62,7 @@ export function HeroSection() {
                   size="lg" 
                     className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 text-sm sm:text-base lg:text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
                 >
-                  Démarrer mon projet
+                  {t('hero.cta-primary')}
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </a>
@@ -78,7 +78,7 @@ export function HeroSection() {
                   size="lg"
                     className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-4 text-sm sm:text-base lg:text-lg font-semibold rounded-xl transition-all duration-300"
                 >
-                  Découvrir nos services
+                  {t('hero.cta-secondary')}
                 </Button>
               </a>
               </motion.div>
@@ -110,7 +110,7 @@ export function HeroSection() {
                   <div className="w-6 h-6 bg-gray-50 rounded-full border-2 border-white"></div>
                   <div className="w-6 h-6 bg-gray-50 rounded-full border-2 border-white"></div>
                 </div>
-                <span className="text-sm font-semibold">Active 2k Members</span>
+                <span className="text-sm font-semibold">{t('hero.active-members')}</span>
               </motion.div>
 
               {/* Main Image */}
@@ -137,11 +137,11 @@ export function HeroSection() {
               >
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-yellow-500" />
-                  <span className="text-sm text-gray-600">50+ Projets en cours</span>
+                  <span className="text-sm text-gray-600">{t('hero.projects-in-progress')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5 text-red-500" />
-                  <span className="text-sm text-gray-600">40+ Équipe dédiée</span>
+                  <span className="text-sm text-gray-600">{t('hero.dedicated-team')}</span>
                 </div>
               </motion.div>
             </div>

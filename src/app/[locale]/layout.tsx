@@ -43,12 +43,12 @@ export default async function ModernLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-sm sm:text-base lg:text-lg`}
       >
         <QueryProvider>
-          <Header />
-          <Toaster />
           <NextIntlClientProvider locale={locale} messages={messages}>
+            <Header />
+            <Toaster />
             {children}
+            <Footer />
           </NextIntlClientProvider>
-          <Footer />
         </QueryProvider>
       </body>
     </html>
