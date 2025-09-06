@@ -84,7 +84,7 @@ export function ContactSection() {
   return (
     <section ref={sectionRef} id="contact" className="py-24 bg-gradient-to-br from-red-50 via-red-100 to-red-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+  
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -111,7 +111,7 @@ export function ContactSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Sticky Image - Hidden on mobile */}
+
           <div className="hidden lg:block">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -121,7 +121,6 @@ export function ContactSection() {
               className="sticky top-24"
             >
               <div className="relative h-[70vh] rounded-3xl overflow-hidden shadow-2xl">
-                {/* Carousel d'images avec animation */}
                 <motion.div
                   className="relative w-full h-full"
                   style={{ scale: imageScale }}
@@ -153,10 +152,8 @@ export function ContactSection() {
                   ))}
                 </motion.div>
 
-                {/* Overlay pour harmoniser avec les couleurs du site */}
                 <div className="absolute inset-0 bg-gradient-to-t from-red-500/20 to-transparent"></div>
 
-                {/* Badge flottant */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -170,7 +167,6 @@ export function ContactSection() {
                   </div>
                 </motion.div>
 
-                {/* Stats overlay */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -190,7 +186,6 @@ export function ContactSection() {
                   </div>
                 </motion.div>
 
-                {/* Indicateurs de carousel */}
                 <div className="absolute top-6 right-6 flex gap-2">
                   {images.map((_, index) => (
                     <motion.div
@@ -209,7 +204,6 @@ export function ContactSection() {
             </motion.div>
           </div>
 
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}

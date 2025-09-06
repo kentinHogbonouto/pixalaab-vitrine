@@ -17,7 +17,7 @@ export function HeroSection() {
     <section className="relative min-h-[85vh] flex items-center bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
+
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -25,7 +25,6 @@ export function HeroSection() {
             className="space-y-8 order-2 lg:order-1"
           >
 
-            {/* Main Headline */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -35,8 +34,7 @@ export function HeroSection() {
                 {t('hero.title')}
                 </h1>
           </motion.div>
-          
-            {/* Description */}
+
           <motion.p
               initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -46,7 +44,7 @@ export function HeroSection() {
               {t('hero.description')}
           </motion.p>
 
-            {/* CTA Buttons */}
+
           <motion.div
               initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,19 +85,18 @@ export function HeroSection() {
            
           </motion.div>
 
-          {/* Right Content - Image Card */}
+
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative order-1 lg:order-2 mt-8 lg:mt-0"
           >
-            {/* Background Section */}
+
             <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-red-600 rounded-3xl transform rotate-3"></div>
             
-            {/* Image Card */}
             <div className="relative bg-white rounded-3xl p-8 shadow-2xl">
-              {/* Active Members Badge */}
+
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -113,7 +110,7 @@ export function HeroSection() {
                 <span className="text-sm font-semibold">{t('hero.active-members')}</span>
               </motion.div>
 
-              {/* Main Image */}
+
               <div className="relative h-96 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/admin-data.jpg"
@@ -124,11 +121,11 @@ export function HeroSection() {
                     filter: 'sepia(20%) saturate(1.2) hue-rotate(350deg) contrast(1.1)',
                   }}
                 />
-                {/* Overlay pour harmoniser avec les couleurs du site */}
+
                 <div className="absolute inset-0 bg-gradient-to-t from-red-500/10 to-transparent"></div>
               </div>
 
-              {/* Success Indicators */}
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
