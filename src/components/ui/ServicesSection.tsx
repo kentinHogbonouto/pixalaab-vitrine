@@ -171,7 +171,6 @@ export function ServicesSection() {
   return (
     <section ref={sectionRef} id="services" className="py-24 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -197,9 +196,9 @@ export function ServicesSection() {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-          {/* Sticky Image - Hidden on mobile */}
+
           <div className="hidden lg:block">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -209,7 +208,7 @@ export function ServicesSection() {
               className="sticky top-24"
             >
               <div className="relative h-[90vh] rounded-3xl overflow-hidden shadow-2xl">
-                {/* Carousel d'images avec animation */}
+
                 <motion.div
                   className="relative w-full h-full"
                   style={{ scale: imageScale }}
@@ -240,10 +239,10 @@ export function ServicesSection() {
                     </motion.div>
                   ))}
                 </motion.div>
-                {/* Overlay pour harmoniser avec les couleurs du site */}
+
                 <div className="absolute inset-0 bg-gradient-to-t from-red-500/20 to-transparent"></div>
 
-                {/* Badge flottant */}
+
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -257,7 +256,7 @@ export function ServicesSection() {
                   </div>
                 </motion.div>
 
-                {/* Stats overlay */}
+
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -277,7 +276,7 @@ export function ServicesSection() {
                   </div>
                 </motion.div>
 
-                {/* Indicateurs de carousel */}
+
                 <div className="absolute top-6 right-6 flex gap-2">
                   {images.map((_, index) => (
                     <motion.div
@@ -296,7 +295,7 @@ export function ServicesSection() {
             </motion.div>
           </div>
 
-          {/* Services Cards */}
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, index) => (
               <motion.div
@@ -311,7 +310,7 @@ export function ServicesSection() {
                 <Card className="h-full border-0 bg-white shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
                   <div className={`h-2 bg-gradient-to-r ${service.color}`} />
                   <div className="p-6">
-                    {/* Icon */}
+                    
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       className={`w-14 h-14 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-all duration-300`}
@@ -319,7 +318,7 @@ export function ServicesSection() {
                       <service.icon className="w-7 h-7 text-white" />
                     </motion.div>
 
-                    {/* Content */}
+                    
                     <h3 className="text-sm sm:text-lg lg:text-xl font-bold text-gray-900 mb-3 group-hover:text-yellow-600 transition-colors duration-300">
                       {service.title}
                     </h3>
@@ -328,7 +327,7 @@ export function ServicesSection() {
                       {service.description}
                     </p>
 
-                    {/* Features */}
+                    
                     <div className="space-y-2 mb-4">
                       {service.features.map((feature: string, featureIndex: number) => (
                         <motion.div
@@ -345,7 +344,7 @@ export function ServicesSection() {
                       ))}
                     </div>
 
-                    {/* CTA */}
+                    
                     <motion.button
                       whileHover={{ x: 5 }}
                       className="flex items-center text-yellow-600 font-semibold hover:text-yellow-700 transition-colors duration-300 group text-sm"
@@ -360,7 +359,7 @@ export function ServicesSection() {
           </div>
         </div>
 
-        {/* CTA Section */}
+
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -369,7 +368,7 @@ export function ServicesSection() {
           className="text-center"
         >
           <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-3xl p-12 text-white relative overflow-hidden">
-            {/* Background Pattern */}
+
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-16 -translate-y-16" />
               <div className="absolute bottom-0 right-0 w-40 h-40 bg-white rounded-full translate-x-20 translate-y-20" />

@@ -105,7 +105,7 @@ export function WhyChooseUsSection() {
   return (
     <section id="why-choose-us" className="py-24 bg-gradient-to-br from-white to-red-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+      
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -131,9 +131,9 @@ export function WhyChooseUsSection() {
           </p>
         </motion.div>
 
-        {/* Advantages Grid */}
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-          {/* Sticky Image - Hidden on mobile */}
+          
           <div className="hidden lg:block">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -152,10 +152,8 @@ export function WhyChooseUsSection() {
                     filter: 'sepia(20%) saturate(1.2) hue-rotate(350deg) contrast(1.1)',
                   }}
                 />
-                {/* Overlay pour harmoniser avec les couleurs du site */}
                 <div className="absolute inset-0 bg-gradient-to-t from-red-500/20 to-transparent"></div>
                 
-                {/* Badge flottant */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -172,7 +170,6 @@ export function WhyChooseUsSection() {
             </motion.div>
           </div>
           
-          {/* Advantages Cards */}
           <div className="grid grid-cols-1 gap-6">
             {advantages.map((advantage, index) => (
               <motion.div
@@ -204,7 +201,6 @@ export function WhyChooseUsSection() {
           </div>
         </div>
 
-        {/* Stats Section */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -212,7 +208,6 @@ export function WhyChooseUsSection() {
           viewport={{ once: true }}
           className="bg-gradient-to-r from-red-50 to-red-100 rounded-3xl p-12 text-white mb-20 relative overflow-hidden"
         >
-          {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-16 -translate-y-16" />
             <div className="absolute bottom-0 right-0 w-40 h-40 bg-white rounded-full translate-x-20 translate-y-20" />
@@ -261,7 +256,6 @@ export function WhyChooseUsSection() {
           </div>
         </motion.div>
 
-        {/* Process Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -303,7 +297,6 @@ export function WhyChooseUsSection() {
                   </p>
                 </div>
                 
-                {/* Connection Line */}
                 {index < processSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-yellow-400 to-orange-400 transform -translate-y-1/2" />
                 )}
