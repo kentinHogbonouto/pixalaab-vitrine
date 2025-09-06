@@ -113,40 +113,38 @@ export function TestimonialsSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Group testimonials by 3
   const testimonialsPerSlide = 1;
   const totalSlides = Math.ceil(testimonials.length / testimonialsPerSlide);
 
-  // Auto-play functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 10000); // Change slide every 10 seconds
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, totalSlides]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    setIsAutoPlaying(false); // Stop auto-play when user interacts
+    setIsAutoPlaying(false);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-    setIsAutoPlaying(false); // Stop auto-play when user interacts
+    setIsAutoPlaying(false);
   };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
-    setIsAutoPlaying(false); // Stop auto-play when user interacts
+    setIsAutoPlaying(false);
   };
 
   return (
     <section id="testimonials" className="py-24 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -172,9 +170,8 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Testimonials Slider */}
+
         <div className="relative mb-20">
-          {/* Slider Container */}
           <div className="overflow-hidden rounded-3xl">
             <motion.div
               className="flex"
@@ -198,7 +195,6 @@ export function TestimonialsSection() {
                         >
                           <Card className="h-full border-0 bg-white shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden">
                             <div className="p-6">
-                              {/* Quote Icon */}
                               <motion.div
                                 initial={{ opacity: 0, scale: 0 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
@@ -209,17 +205,14 @@ export function TestimonialsSection() {
                                 <Quote className="w-6 h-6 text-white" />
                               </motion.div>
 
-                              {/* Testimonial Content */}
                               <blockquote className="text-gray-700 leading-relaxed mb-4 italic text-sm">
                                 &ldquo;{testimonial.content}&rdquo;
                               </blockquote>
 
-                              {/* Rating */}
                               <div className="mb-4">
                                 <StarRating rating={testimonial.rating} />
                               </div>
 
-                              {/* Author Info */}
                               <div className="flex items-center">
                                 <motion.div
                                   whileHover={{ scale: 1.1 }}
@@ -264,7 +257,6 @@ export function TestimonialsSection() {
             </motion.div>
           </div>
 
-          {/* Navigation Buttons */}
           <motion.button
             onClick={prevSlide}
             whileHover={{ scale: 1.1 }}
@@ -283,7 +275,6 @@ export function TestimonialsSection() {
             <ChevronRight className="w-6 h-6" />
           </motion.button>
 
-          {/* Dots Indicator */}
           <div className="flex justify-center mt-8 gap-3">
             {Array.from({ length: totalSlides }, (_, index) => (
               <motion.button

@@ -23,7 +23,7 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
-      {/* Background Pattern */}
+
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-64 h-64 bg-red-400 rounded-full blur-3xl -translate-x-32 -translate-y-32" />
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-yellow-400 rounded-full blur-3xl translate-x-40 translate-y-40" />
@@ -31,7 +31,7 @@ export function Footer() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Company Info */}
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +73,6 @@ export function Footer() {
             </div>
           </motion.div>
 
-          {/* Services */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +106,6 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Contact */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -137,7 +135,6 @@ export function Footer() {
           </motion.div>
         </div>
 
-        {/* Bottom Bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -169,7 +166,6 @@ export function Footer() {
         </motion.div>
       </div>
 
-      {/* Scroll to Top Button */}
       <motion.button
         onClick={scrollToTop}
         className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 z-50"
