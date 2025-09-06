@@ -10,70 +10,98 @@ import {
   CheckCircle,
 } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
-const advantages = [
+interface IAdvantage {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  color: string;
+}
+
+interface IStat {
+  number: string;
+  label: string;
+}
+
+interface IProcessStep {
+  step: number;
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+interface ITranslationHook {
+  (key: string): string;
+}
+
+const getAdvantages = (t: ITranslationHook): IAdvantage[] => [
   {
     icon: Target,
-    title: "Expertise Pointue",
-    description: "Une équipe d'experts passionnés avec plus de 10 ans d'expérience dans le développement digital.",
+    title: t('why-choose-us.expertise.title'),
+    description: t('why-choose-us.expertise.description'),
     color: "from-red-500 to-red-600"
   },
   {
     icon: Zap,
-    title: "Technologies Modernes",
-    description: "Utilisation des dernières technologies et frameworks pour des solutions performantes et évolutives.",
+    title: t('why-choose-us.modern-technologies.title'),
+    description: t('why-choose-us.modern-technologies.description'),
     color: "from-yellow-400 to-yellow-500"
   },
   {
     icon: Rocket,
-    title: "Livraison Rapide",
-    description: "Respect des délais et méthodologies agiles pour une livraison dans les temps impartis.",
+    title: t('why-choose-us.fast-delivery.title'),
+    description: t('why-choose-us.fast-delivery.description'),
     color: "from-yellow-500 to-yellow-600"
   },
   {
     icon: Shield,
-    title: "Qualité Garantie",
-    description: "Tests rigoureux et code de qualité pour des applications robustes et sécurisées.",
+    title: t('why-choose-us.guaranteed-quality.title'),
+    description: t('why-choose-us.guaranteed-quality.description'),
     color: "from-red-500 to-red-600"
   }
 ];
 
-
-const stats = [
-  { number: "150+", label: "Projets Réalisés" },
-  { number: "98%", label: "Clients Satisfaits" },
-  { number: "24h", label: "Temps de Réponse" },
-  { number: "5+", label: "Années d'Expérience" }
+const getStats = (t: ITranslationHook): IStat[] => [
+  { number: "150+", label: t('why-choose-us.stats.projects-completed') },
+  { number: "98%", label: t('why-choose-us.stats.satisfied-clients') },
+  { number: "24h", label: t('why-choose-us.stats.response-time') },
+  { number: "5+", label: t('why-choose-us.stats.years-experience') }
 ];
 
-const processSteps = [
+const getProcessSteps = (t: ITranslationHook): IProcessStep[] => [
   {
     step: 1,
-    title: "Découverte",
-    description: "Analyse de vos besoins et objectifs business",
+    title: t('why-choose-us.process.discovery.title'),
+    description: t('why-choose-us.process.discovery.description'),
     icon: Target
   },
   {
     step: 2,
-    title: "Conception",
-    description: "Architecture technique et design des interfaces",
+    title: t('why-choose-us.process.conception.title'),
+    description: t('why-choose-us.process.conception.description'),
     icon: Zap
   },
   {
     step: 3,
-    title: "Développement",
-    description: "Codage et intégration selon les meilleures pratiques",
+    title: t('why-choose-us.process.development.title'),
+    description: t('why-choose-us.process.development.description'),
     icon: Rocket
   },
   {
     step: 4,
-    title: "Livraison",
-    description: "Tests, déploiement et formation utilisateurs",
+    title: t('why-choose-us.process.delivery.title'),
+    description: t('why-choose-us.process.delivery.description'),
     icon: CheckCircle
   }
 ];
 
 export function WhyChooseUsSection() {
+  const t = useTranslations();
+  const advantages = getAdvantages(t);
+  const stats = getStats(t);
+  const processSteps = getProcessSteps(t);
+  
   return (
     <section id="why-choose-us" className="py-24 bg-gradient-to-br from-white to-red-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,10 +124,10 @@ export function WhyChooseUsSection() {
           </motion.div>
           
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-            Pourquoi Choisir <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Pixalaab</span> ?
+            {t('why-choose-us.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Notre engagement : vous accompagner vers le succès digital avec expertise, innovation et résultats mesurables
+            {t('why-choose-us.subtitle')}
           </p>
         </motion.div>
 
@@ -137,7 +165,7 @@ export function WhyChooseUsSection() {
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-semibold text-gray-900">En développement</span>
+                    <span className="text-sm font-semibold text-gray-900">{t('why-choose-us.in-development')}</span>
                   </div>
                 </motion.div>
               </div>
@@ -203,10 +231,10 @@ export function WhyChooseUsSection() {
               </motion.div>
               
               <h3 className="text-3xl font-bold mb-4 text-red-500">
-                Nos Chiffres Clés
+                {t('why-choose-us.key-figures')}
               </h3>
               <p className="text-gray-600 text-lg">
-                La preuve de notre expertise en chiffres
+                {t('why-choose-us.key-figures-subtitle')}
               </p>
             </div>
             
@@ -242,7 +270,7 @@ export function WhyChooseUsSection() {
           className="text-center"
         >
           <h3 className="text-3xl font-bold text-gray-900 mb-12">
-            Notre Méthodologie
+            {t('why-choose-us.methodology')}
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

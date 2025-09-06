@@ -22,102 +22,116 @@ import { useRouter } from "next/navigation";
 import { Button } from "./Button";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 
-const services = [
+interface IService {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  features: string[];
+  color: string;
+  bgColor: string;
+}
+
+interface ITranslationHook {
+  (key: string): string;
+  raw: (key: string) => string[];
+}
+
+const getServices = (t: ITranslationHook): IService[] => [
   {
     icon: Code,
-    title: "Développement Web",
-    description: "Sites vitrine, e-commerce et applications web sur mesure avec les technologies les plus modernes.",
-    features: ["React/Next.js", "E-commerce", "API REST", "Responsive Design"],
+    title: t('services.web-development.title'),
+    description: t('services.web-development.description'),
+    features: t.raw('services.web-development.features'),
     color: "from-red-500 to-red-600",
     bgColor: "from-red-50 to-red-100"
   },
   {
     icon: Smartphone,
-    title: "Applications Mobiles",
-    description: "Applications iOS et Android natives ou cross-platform pour maximiser votre présence mobile.",
-    features: ["React Native", "Flutter", "iOS/Android", "PWA"],
+    title: t('services.mobile-apps.title'),
+    description: t('services.mobile-apps.description'),
+    features: t.raw('services.mobile-apps.features'),
     color: "from-yellow-400 to-yellow-500",
     bgColor: "from-yellow-50 to-yellow-100"
   },
   {
     icon: Laptop,
-    title: "Applications Desktop",
-    description: "Développement d'applications sur mesure pour Windows, Mac et Linux afin d’optimiser vos environnements de travail.",
-    features: ["Electron.js", "C++/C#", "Java", "Multi-OS"],
+    title: t('services.desktop-apps.title'),
+    description: t('services.desktop-apps.description'),
+    features: t.raw('services.desktop-apps.features'),
     color: "from-red-600 to-red-700",
     bgColor: "from-red-50 to-red-100"
   },
   {
     icon: Cpu,
-    title: "Internet des Objets (IoT)",
-    description: "Développement de systèmes connectés pour améliorer vos services, produits et infrastructures.",
-    features: ["Domotique", "Capteurs intelligents", "Objets connectés", "Intégration cloud"],
+    title: t('services.iot.title'),
+    description: t('services.iot.description'),
+    features: t.raw('services.iot.features'),
     color: "from-yellow-500 to-yellow-600",
     bgColor: "from-yellow-50 to-yellow-100"
   },
-
   {
     icon: Palette,
-    title: "UX/UI Design",
-    description: "Interfaces utilisateur intuitives et expériences digitales mémorables pour vos utilisateurs.",
-    features: ["Design System", "Prototypage", "Tests utilisateurs", "Accessibilité"],
+    title: t('services.ux-ui-design.title'),
+    description: t('services.ux-ui-design.description'),
+    features: t.raw('services.ux-ui-design.features'),
     color: "from-red-500 to-red-600",
     bgColor: "from-red-50 to-red-100"
   },
   {
     icon: Zap,
-    title: "Transformation Digitale",
-    description: "Accompagnement complet dans la digitalisation de vos processus métier et de votre organisation.",
-    features: ["Audit digital", "Stratégie", "Formation", "Accompagnement"],
+    title: t('services.digital-transformation.title'),
+    description: t('services.digital-transformation.description'),
+    features: t.raw('services.digital-transformation.features'),
     color: "from-yellow-400 to-yellow-500",
     bgColor: "from-yellow-50 to-yellow-100"
   },
   {
     icon: Lightbulb,
-    title: "Conseil Stratégique",
-    description: "Expertise en stratégie numérique pour optimiser votre présence digitale et votre ROI.",
-    features: ["Audit", "Roadmap", "Analytics", "Optimisation"],
+    title: t('services.strategic-consulting.title'),
+    description: t('services.strategic-consulting.description'),
+    features: t.raw('services.strategic-consulting.features'),
     color: "from-red-600 to-red-700",
     bgColor: "from-red-50 to-red-100"
   },
   {
     icon: Brain,
-    title: "Intelligence Artificielle",
-    description: "Solutions basées sur l’IA pour automatiser, analyser et créer de la valeur ajoutée à vos données et processus.",
-    features: ["Machine Learning", "Chatbots", "Vision par ordinateur", "NLP"],
+    title: t('services.artificial-intelligence.title'),
+    description: t('services.artificial-intelligence.description'),
+    features: t.raw('services.artificial-intelligence.features'),
     color: "from-yellow-500 to-yellow-600",
     bgColor: "from-yellow-50 to-yellow-100"
   },
   {
     icon: Database,
-    title: "Big Data & Analytics",
-    description: "Exploitation de vos données massives pour générer des insights stratégiques et booster vos performances.",
-    features: ["Data Mining", "ETL", "Tableau/Power BI", "Prévisions"],
+    title: t('services.big-data-analytics.title'),
+    description: t('services.big-data-analytics.description'),
+    features: t.raw('services.big-data-analytics.features'),
     color: "from-red-500 to-red-600",
     bgColor: "from-red-50 to-red-100"
   },
   {
     icon: Blocks,
-    title: "Blockchain",
-    description: "Développement de solutions basées sur la blockchain pour plus de transparence, de traçabilité et de sécurité.",
-    features: ["Smart Contracts", "Crypto Wallets", "NFT", "DApps"],
+    title: t('services.blockchain.title'),
+    description: t('services.blockchain.description'),
+    features: t.raw('services.blockchain.features'),
     color: "from-yellow-400 to-yellow-500",
     bgColor: "from-yellow-50 to-yellow-100"
   },
   {
     icon: Lock,
-    title: "Cybersécurité",
-    description: "Protection avancée de vos systèmes, données et utilisateurs contre les menaces numériques.",
-    features: ["Audit de sécurité", "Pentesting", "Sécurité réseau", "Conformité RGPD"],
+    title: t('services.cybersecurity.title'),
+    description: t('services.cybersecurity.description'),
+    features: t.raw('services.cybersecurity.features'),
     color: "from-red-600 to-red-700",
     bgColor: "from-red-50 to-red-100"
   },
   {
     icon: Shield,
-    title: "Maintenance & Support",
-    description: "Services de maintenance continue et support technique pour garantir la performance de vos solutions.",
-    features: ["Monitoring", "Sécurité", "Mises à jour", "Support 24/7"],
+    title: t('services.maintenance-support.title'),
+    description: t('services.maintenance-support.description'),
+    features: t.raw('services.maintenance-support.features'),
     color: "from-yellow-500 to-yellow-600",
     bgColor: "from-yellow-50 to-yellow-100"
   }
@@ -128,6 +142,8 @@ export function ServicesSection() {
   const router = useRouter();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const t = useTranslations();
+  const services = getServices(t);
 
   // Images pour le carousel
   const images = [
@@ -174,10 +190,10 @@ export function ServicesSection() {
           </motion.div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-            Nos <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">Services</span>
+            {t('services.title')}
           </h2>
           <p className="text-sm sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Des solutions digitales complètes pour transformer votre entreprise et accélérer votre croissance
+            {t('services.subtitle')}
           </p>
         </motion.div>
 
@@ -237,7 +253,7 @@ export function ServicesSection() {
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-semibold text-gray-900">Services actifs</span>
+                    <span className="text-sm font-semibold text-gray-900">{t('services.active-services')}</span>
                   </div>
                 </motion.div>
 
@@ -252,11 +268,11 @@ export function ServicesSection() {
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
                       <div className="text-2xl font-bold text-red-600">6+</div>
-                      <div className="text-xs text-gray-600">Services</div>
+                      <div className="text-xs text-gray-600">{t('services.services-count')}</div>
                     </div>
                     <div>
                       <div className="text-2xl font-bold text-yellow-600">24/7</div>
-                      <div className="text-xs text-gray-600">Support</div>
+                      <div className="text-xs text-gray-600">{t('services.support')}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -314,7 +330,7 @@ export function ServicesSection() {
 
                     {/* Features */}
                     <div className="space-y-2 mb-4">
-                      {service.features.map((feature, featureIndex) => (
+                      {service.features.map((feature: string, featureIndex: number) => (
                         <motion.div
                           key={featureIndex}
                           initial={{ opacity: 0, x: -20 }}
@@ -334,7 +350,7 @@ export function ServicesSection() {
                       whileHover={{ x: 5 }}
                       className="flex items-center text-yellow-600 font-semibold hover:text-yellow-700 transition-colors duration-300 group text-sm"
                     >
-                      En savoir plus
+                      {t('services.learn-more')}
                       <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </motion.button>
                   </div>
@@ -371,11 +387,10 @@ export function ServicesSection() {
               </motion.div>
 
               <h3 className="text-base sm:text-xl lg:text-3xl font-bold mb-4 text-red-500">
-                Besoin d&apos;une solution sur mesure ?
+                {t('services.custom-solution-title')}
               </h3>
               <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-sm sm:text-lg lg:text-xl">
-                Nos experts sont là pour vous accompagner dans la réalisation de votre projet digital.
-                Contactez-nous pour un devis personnalisé.
+                {t('services.custom-solution-description')}
               </p>
 
               <motion.a
@@ -385,7 +400,7 @@ export function ServicesSection() {
               >
                 <Button onClick={() => router.push("/#contact")} className="bg-white text-red-600 px-8 py-4 text-sm sm:text-base lg:text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 mx-auto">
                   <Zap className="w-5 h-5" />
-                  Discuter de votre projet
+                  {t('services.discuss-project')}
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </motion.a>
