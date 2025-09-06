@@ -11,16 +11,12 @@ import {
   ArrowUp
 } from "lucide-react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 
 export function Footer() {
-  const t = useTranslations();
-  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const year = new Date().getFullYear();
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
@@ -52,7 +48,8 @@ export function Footer() {
               </div>
             </div>
             <p className="text-gray-400 mb-8 max-w-md leading-relaxed">
-              {t('footer.description')}
+              Votre partenaire digital de confiance pour transformer votre vision en réalité. 
+              Développement web, applications mobiles et transformation digitale.
             </p>
             <div className="flex space-x-4">
               {[
@@ -80,14 +77,14 @@ export function Footer() {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-semibold mb-6 text-red-300">{t('footer.services-title')}</h3>
+            <h3 className="text-lg font-semibold mb-6 text-red-300">Nos Services</h3>
             <ul className="space-y-3">
               {[
-                t('services.web-development.title'),
-                t('services.mobile-apps.title'),
-                t('services.digital-transformation.title'),
-                t('services.ux-ui-design.title'),
-                t('services.strategic-consulting.title')
+                "Développement Web",
+                "Applications Mobiles",
+                "Transformation Digitale",
+                "UX/UI Design",
+                "Conseil Stratégique"
               ].map((service, index) => (
                 <motion.li
                   key={service}
@@ -114,7 +111,7 @@ export function Footer() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-semibold mb-6 text-red-300">{t('footer.contact-title')}</h3>
+            <h3 className="text-lg font-semibold mb-6 text-red-300">Contact</h3>
             <div className="space-y-4">
               {[
                 { icon: Mail, text: "pixalaab@gmail.com" },
@@ -147,13 +144,13 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {year} {t('footer.copyright')}
+              © 2024 Pixalaab Technologie. Tous droits réservés.
             </div>
             <div className="flex space-x-6 text-sm text-gray-400">
               {[
-                t('footer.legal.terms'),
-                t('footer.legal.privacy'),
-                t('footer.legal.conditions')
+                "Mentions légales",
+                "Politique de confidentialité",
+                "Conditions d'utilisation"
               ].map((link, index) => (
                 <motion.a
                   key={index}

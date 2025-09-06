@@ -2,10 +2,8 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Home, Mail, Wrench, Quote, Award, Globe } from 'lucide-react';
+import { Menu, X, Home, Mail, Wrench, Quote, Award } from 'lucide-react';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
-import { useRouter, usePathname } from 'next/navigation';
 
 interface HeaderProps {
   className?: string;
@@ -13,14 +11,6 @@ interface HeaderProps {
 
 export function Header({ className }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const t = useTranslations();
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const changeLanguage = (locale: string) => {
-    const newPath = pathname.replace(/^\/[a-z]{2}/, `/${locale}`);
-    router.push(newPath);
-  };
 
 
   return (
@@ -42,14 +32,14 @@ export function Header({ className }: HeaderProps) {
               className="flex items-center gap-2 text-white hover:text-slate-900 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-slate-100"
             >
               <Home className="w-4 h-4" />
-              {t('header.home')}
+              Accueil
             </Link>
             <Link 
               href="#services" 
               className="flex items-center gap-2 text-white hover:text-slate-900 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-slate-100"
             >
               <Wrench className="w-4 h-4" />
-              {t('header.services')}
+              Services
             </Link>
            
             <Link 
@@ -57,7 +47,7 @@ export function Header({ className }: HeaderProps) {
               className="flex items-center gap-2 text-white hover:text-slate-900 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-slate-100"
             >
               <Award className="w-4 h-4" />
-              {t('header.why-choose-us')}
+              Pourquoi nous choisir
             </Link>
 
             <Link 
@@ -65,7 +55,7 @@ export function Header({ className }: HeaderProps) {
               className="flex items-center gap-2 text-white hover:text-slate-900 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-slate-100"
             >
               <Quote className="w-4 h-4" />
-              {t('header.testimonials')}
+              Temoignages
             </Link>
 
            
@@ -74,21 +64,8 @@ export function Header({ className }: HeaderProps) {
               className="flex items-center gap-2 text-white hover:text-slate-900 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-slate-100"
             >
               <Mail className="w-4 h-4" />
-              {t('header.contact')}
+              Contact
             </Link>
-
-            {/* Language Selector */}
-            <div className="flex items-center gap-2">
-              <Globe className="w-4 h-4 text-white" />
-              <select 
-                onChange={(e) => changeLanguage(e.target.value)}
-                className="bg-transparent text-white border-none outline-none cursor-pointer"
-                defaultValue={pathname.split('/')[1] || 'fr'}
-              >
-                <option value="fr" className="bg-gray-800 text-white">FR</option>
-                <option value="en" className="bg-gray-800 text-white">EN</option>
-              </select>
-            </div>
 
           </nav>
 
@@ -115,7 +92,7 @@ export function Header({ className }: HeaderProps) {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <Home className="w-5 h-5" />
-                {t('header.home')}
+                Accueil
               </Link>
 
               <Link 
@@ -124,7 +101,7 @@ export function Header({ className }: HeaderProps) {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <Wrench className="w-5 h-5" />
-                {t('header.services')}
+                Services
               </Link>
              
 
@@ -134,7 +111,7 @@ export function Header({ className }: HeaderProps) {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <Award className="w-5 h-5" />
-                {t('header.why-choose-us')}
+                Pourquoi nous choisir
               </Link>
 
               <Link 
@@ -143,7 +120,7 @@ export function Header({ className }: HeaderProps) {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <Quote className="w-5 h-5" />
-                {t('header.testimonials')}
+                Temoignages
               </Link>
 
               <Link 
@@ -152,21 +129,8 @@ export function Header({ className }: HeaderProps) {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <Mail className="w-5 h-5" />
-                {t('header.contact')}
+                Contact
               </Link>
-
-              {/* Language Selector Mobile */}
-              <div className="flex items-center gap-3 text-white px-3 py-2">
-                <Globe className="w-5 h-5" />
-                <select 
-                  onChange={(e) => changeLanguage(e.target.value)}
-                  className="bg-transparent text-white border-none outline-none cursor-pointer"
-                  defaultValue={pathname.split('/')[1] || 'fr'}
-                >
-                  <option value="fr" className="bg-gray-800 text-white">FR</option>
-                  <option value="en" className="bg-gray-800 text-white">EN</option>
-                </select>
-              </div>
             </div>
           </div>
         )}

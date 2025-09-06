@@ -12,7 +12,6 @@ import {
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import { useSendMail, ContactFormData } from "@/hooks/useSendMail";
-import { useTranslations } from "next-intl";
 
 export function ContactSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -27,7 +26,6 @@ export function ContactSection() {
   });
 
   const sendMailMutation = useSendMail();
-  const t = useTranslations();
 
   // Images pour le carousel
   const images = [
@@ -103,10 +101,10 @@ export function ContactSection() {
           </motion.div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-            {t('contact.title')}
+            Prêt à <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">transformer</span> votre business ?
           </h2>
           <p className="text-sm sm:text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            {t('contact.subtitle')}
+            Contactez-nous pour discuter de votre projet et recevoir un devis personnalisé sous 24h
           </p>
         </motion.div>
 
@@ -166,7 +164,7 @@ export function ContactSection() {
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-semibold text-gray-900">{t('contact.active-contact')}</span>
+                    <span className="text-sm font-semibold text-gray-900">Contact actif</span>
                   </div>
                 </motion.div>
 
@@ -181,11 +179,11 @@ export function ContactSection() {
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
                       <div className="text-2xl font-bold text-red-600">24h</div>
-                      <div className="text-xs text-gray-600">{t('contact.response-time')}</div>
+                      <div className="text-xs text-gray-600">Réponse</div>
                     </div>
                     <div>
                       <div className="text-2xl font-bold text-yellow-600">100%</div>
-                      <div className="text-xs text-gray-600">{t('contact.free')}</div>
+                      <div className="text-xs text-gray-600">Gratuit</div>
                     </div>
                   </div>
                 </motion.div>
@@ -222,7 +220,7 @@ export function ContactSection() {
                 <Send className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">
-                {t('contact.quote-title')}
+                Demander un devis gratuit
               </h3>
             </div>
 
@@ -235,9 +233,9 @@ export function ContactSection() {
                   viewport={{ once: true }}
                 >
                   <SimpleInput
-                    label={t('contact.form.firstName')}
+                    label="Prénom *"
                     type="text"
-                    placeholder={t('contact.form.firstName-placeholder')}
+                    placeholder="Votre prénom"
                     value={formData.firstName}
                     onChange={(e) => handleInputChange("firstName", e.target.value)}
                     required
@@ -250,9 +248,9 @@ export function ContactSection() {
                   viewport={{ once: true }}
                 >
                   <SimpleInput
-                    label={t('contact.form.lastName')}
+                    label="Nom *"
                     type="text"
-                    placeholder={t('contact.form.lastName-placeholder')}
+                    placeholder="Votre nom"
                     value={formData.lastName}
                     onChange={(e) => handleInputChange("lastName", e.target.value)}
                     required
@@ -267,9 +265,9 @@ export function ContactSection() {
                 viewport={{ once: true }}
               >
                 <SimpleInput
-                  label={t('contact.form.email')}
+                  label="Email *"
                   type="email"
-                  placeholder={t('contact.form.email-placeholder')}
+                  placeholder="votre@email.com"
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
                   required
@@ -283,9 +281,9 @@ export function ContactSection() {
                 viewport={{ once: true }}
               >
                 <SimpleInput
-                  label={t('contact.form.company')}
+                  label="Entreprise (optionnel)"
                   type="text"
-                  placeholder={t('contact.form.company-placeholder')}
+                  placeholder="Nom de votre entreprise"
                   value={formData.company}
                   onChange={(e) => handleInputChange("company", e.target.value)}
                 />
@@ -299,7 +297,7 @@ export function ContactSection() {
               >
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-gray-700">
-                    {t('contact.form.service')}
+                    Service souhaité *
                   </label>
                   <select
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300"
@@ -307,20 +305,20 @@ export function ContactSection() {
                     onChange={(e) => handleInputChange("service", e.target.value)}
                     required
                   >
-                    <option value="">{t('contact.form.service-placeholder')}</option>
-                    <option value="info">{t('contact.services.info')}</option>
-                    <option value="web">{t('contact.services.web')}</option>
-                    <option value="mobile">{t('contact.services.mobile')}</option>
-                    <option value="desktop">{t('contact.services.desktop')}</option>
-                    <option value="iot">{t('contact.services.iot')}</option>
-                    <option value="design">{t('contact.services.design')}</option>
-                    <option value="digital">{t('contact.services.digital')}</option>
-                    <option value="consulting">{t('contact.services.consulting')}</option>
-                    <option value="ai">{t('contact.services.ai')}</option>
-                    <option value="bigdata">{t('contact.services.bigdata')}</option>
-                    <option value="blockchain">{t('contact.services.blockchain')}</option>
-                    <option value="cybersecurity">{t('contact.services.cybersecurity')}</option>
-                    <option value="maintenance">{t('contact.services.maintenance')}</option>
+                    <option value="">Sélectionnez un service</option>
+                    <option value="info">Demande d’information générale</option>
+                    <option value="web">Développement Web</option>
+                    <option value="mobile">Applications Mobiles</option>
+                    <option value="desktop">Applications Desktop (Windows, Mac, Linux)</option>
+                    <option value="iot">Internet des Objets (IoT)</option>
+                    <option value="design">UX/UI Design</option>
+                    <option value="digital">Transformation Digitale</option>
+                    <option value="consulting">Conseil Stratégique</option>
+                    <option value="ai">Intelligence Artificielle (IA)</option>
+                    <option value="bigdata">Big Data & Analytics</option>
+                    <option value="blockchain">Blockchain</option>
+                    <option value="cybersecurity">Cybersécurité</option>
+                    <option value="maintenance">Maintenance & Support</option>
                   </select>
                 </div>
               </motion.div>
@@ -332,9 +330,9 @@ export function ContactSection() {
                 viewport={{ once: true }}
               >
                 <SimpleTextarea
-                  label={t('contact.form.message')}
+                  label="Message *"
                   rows={4}
-                  placeholder={t('contact.form.message-placeholder')}
+                  placeholder="Décrivez votre projet, vos objectifs et vos besoins..."
                   value={formData.message}
                   onChange={(e) => handleInputChange("message", e.target.value)}
                   required
@@ -355,12 +353,12 @@ export function ContactSection() {
                   {sendMailMutation.isPending ? (
                     <>
                       <Loader2 className="w-5 h-5 animate-spin" />
-                      {t('contact.form.sending')}
+                      Envoi en cours...
                     </>
                   ) : (
                     <>
                       <Send className="w-5 h-5" />
-                      {t('contact.form.submit')}
+                      Recevoir une réponse sous 24h
                     </>
                   )}
                 </Button>
