@@ -343,15 +343,7 @@ export function ServicesSection() {
                         </motion.div>
                       ))}
                     </div>
-
                     
-                    <motion.button
-                      whileHover={{ x: 5 }}
-                      className="flex items-center text-yellow-600 font-semibold hover:text-yellow-700 transition-colors duration-300 group text-sm"
-                    >
-                      {t('services.learn-more')}
-                      <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                    </motion.button>
                   </div>
                 </Card>
               </motion.div>
