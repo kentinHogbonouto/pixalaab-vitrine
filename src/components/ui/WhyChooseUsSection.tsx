@@ -63,7 +63,7 @@ const getAdvantages = (t: ITranslationHook): IAdvantage[] => [
 ];
 
 const getStats = (t: ITranslationHook): IStat[] => [
-  { number: "150+", label: t('why-choose-us.stats.projects-completed') },
+  { number: "25+", label: t('why-choose-us.stats.projects-completed') },
   { number: "98%", label: t('why-choose-us.stats.satisfied-clients') },
   { number: "24h", label: t('why-choose-us.stats.response-time') },
   { number: "5+", label: t('why-choose-us.stats.years-experience') }
