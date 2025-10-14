@@ -24,7 +24,6 @@ export function HeroSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-8 order-2 lg:order-1"
           >
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -43,7 +42,6 @@ export function HeroSection() {
           >
               {t('hero.description')}
           </motion.p>
-
 
           <motion.div
               initial={{ opacity: 0, y: 20 }}
