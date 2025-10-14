@@ -25,7 +25,7 @@ export function Header({ className }: HeaderProps) {
 
   return (
     <header className={`bg-[#FF3130] backdrop-blur-sm border-b border-slate-200/60 shadow-sm sticky top-0 z-50 ${className}`}>
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="container mx-auto sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
 
           <div className="flex-shrink-0">
