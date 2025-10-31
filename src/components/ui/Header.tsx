@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Home, Mail, Wrench, Quote, Award, Globe } from 'lucide-react';
+import { Menu, X, Home, Mail, Wrench, Award, Globe, Lightbulb } from 'lucide-react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
@@ -60,11 +60,11 @@ export function Header({ className }: HeaderProps) {
             </Link>
 
             <Link 
-              href="#testimonials"  
+              href="#realisation"  
               className="flex items-center gap-2 text-white hover:text-slate-900 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-slate-100"
             >
-              <Quote className="w-4 h-4" />
-              {t('header.testimonials')}
+              <Lightbulb className="w-4 h-4" />
+              {t('header.realizations')}
             </Link>
 
            
@@ -133,12 +133,12 @@ export function Header({ className }: HeaderProps) {
               </Link>
 
               <Link 
-                href="#testimonials" 
+                href="#realisation" 
                 className="flex items-center gap-3 text-white hover:text-slate-900 px-3 py-2 rounded-lg text-base font-medium transition-all duration-200 hover:bg-slate-100"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <Quote className="w-5 h-5" />
-                {t('header.testimonials')}
+                <Lightbulb className="w-4 h-4" />
+                {t('header.realizations')}
               </Link>
 
               <Link 
