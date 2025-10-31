@@ -64,8 +64,11 @@ const AvatarImage = React.forwardRef<HTMLImageElement, AvatarImageProps>(
         return;
       }
 
+      // Convert Blob to URL string if necessary
+      const imageUrl = typeof src === 'string' ? src : URL.createObjectURL(src);
+      
       const img = new window.Image();
-      img.src = src;
+      img.src = imageUrl;
       img.onload = () => {
         setIsLoading(false);
         setError(false);
@@ -73,6 +76,13 @@ const AvatarImage = React.forwardRef<HTMLImageElement, AvatarImageProps>(
       img.onerror = () => {
         setIsLoading(false);
         setError(true);
+      };
+
+      // Cleanup: revoke object URL if it was created from a Blob
+      return () => {
+        if (typeof src !== 'string') {
+          URL.revokeObjectURL(imageUrl);
+        }
       };
     }, [src]);
 
@@ -88,7 +98,7 @@ const AvatarImage = React.forwardRef<HTMLImageElement, AvatarImageProps>(
       <Image
         ref={ref}
         className={cn("w-full h-full object-cover", className)}
-        src={src}
+        src={typeof src === 'string' ? src : URL.createObjectURL(src)}
         alt={alt || "Avatar"}
         {...props}
         width={undefined}
