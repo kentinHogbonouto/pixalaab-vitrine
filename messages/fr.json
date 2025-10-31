@@ -5,7 +5,7 @@
     "why-choose-us": "Pourquoi nous choisir",
     "testimonials": "Témoignages",
     "contact": "Contact",
-    "realizations": "Nos réalisations"
+    "realizations": "Nos réalisations récentes"
   },
   "hero": {
     "title": "Transformez votre vision digitale en réalité avec des solutions innovantes et performantes",
@@ -183,6 +183,33 @@
       "terms": "Mentions légales",
       "privacy": "Politique de confidentialité",
       "conditions": "Conditions d'utilisation"
+    }
+  },
+  "realizations": {
+    "title": "Nos projets récents",
+    "subtitle": "Une sélection de produits délivrés avec qualité, performance et sens du détail.",
+    "view-project": "Voir le projet",
+    "projects": {
+      "economiam": {
+        "title": "Economiam",
+        "description": "Plateforme de commande et livraison de repas pour entreprises. UX rapide, clair, à impact social."
+      },
+      "huufit": {
+        "title": "HuuFIT Fitscore",
+        "description": "Calculateur fitness et onboarding à l'application HuuFIT. Données locales, expérience fluide."
+      },
+      "fermierConnecte": {
+        "title": "Fermier Connecté",
+        "description": "Plateforme de mise en relation producteurs/acheteurs. Mise en avant des produits locaux et commande simplifiée."
+      },
+      "loobv": {
+        "title": "LooBv",
+        "description": "Solution de mise en relation avec valorisation des acteurs locaux et parcours optimisé."
+      },
+      "eyon": {
+        "title": "Éyon",
+        "description": "Site vitrine corporate avec présentation claire des activités et prise de contact facilitée."
+      }
     }
   }
 }
