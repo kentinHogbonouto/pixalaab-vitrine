@@ -59,14 +59,7 @@ export function RealizationsSection() {
       href: "https://loobv.com/",
       badge: "Web App",
       image: '/images/loobv.png',
-    },
-    {
-      title: t('realizations.projects.eyon.title'),
-      description: t('realizations.projects.eyon.description'),
-      href: "https://groupeyon.com/",
-      badge: "Web App",
-      image: '/images/groupeeyon.png',
-    },
+    }
   ];
   
   return (
