@@ -141,9 +141,9 @@ export async function generateMetadata({
         en: `${baseUrl}/en`,
       },
     },
-    // verification: {
-    //   google: "hE3PiAkjwB9idFceb22fGEPmWyswacczBA3yZ5u",
-    // },
+    verification: {
+      google: "hE3PiAkjwB9idFceb22fGEPmWyswacczBA3yZ5u",
+    },
     category: "Technology",
     other: {
       "geo.region": "BJ-LI",
