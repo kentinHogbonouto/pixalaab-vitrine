@@ -18,16 +18,44 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: { 
-    default: "Pixalaab Technologie - Développement Web, Applications Mobiles & Transformation Digitale",
-    template: "%s | Pixalaab Technologie - Experts en Solutions Numériques Modernes"
-  },
-  description:
-    "Pixalaab Technologie est votre partenaire digital pour le développement web, mobile et la transformation numérique. Nous aidons les entreprises à innover, automatiser et réussir en ligne grâce à des solutions sur mesure et performantes.",
-  keywords: [
-    // 🔹 Mots-clés principaux
-    "développement web",
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  const baseUrl = "https://pixaalab.com";
+  const url = locale === "fr" ? baseUrl : `${baseUrl}/${locale}`;
+
+  const title =
+    locale === "fr"
+      ? "Pixalaab Technologie - Développement Web, Applications Mobiles & Transformation Digitale"
+      : "Pixalaab Technology - Web Development, Mobile Apps & Digital Transformation";
+
+  const description =
+    locale === "fr"
+      ? "Pixalaab Technologie est votre partenaire digital pour le développement web, mobile et la transformation numérique. Nous aidons les entreprises à innover, automatiser et réussir en ligne grâce à des solutions sur mesure et performantes."
+      : "Pixalaab Technology is your digital partner for web development, mobile apps and digital transformation. We help businesses innovate, automate and succeed online with custom and high-performance solutions.";
+
+  const ogTitle =
+    locale === "fr"
+      ? "Pixalaab Technologie - Experts en Développement Web & Mobile"
+      : "Pixalaab Technology - Web & Mobile Development Experts";
+
+  const ogDescription =
+    locale === "fr"
+      ? "Boostez votre croissance digitale avec Pixalaab Technologie. Développement web, mobile et solutions sur mesure pour entreprises et startups."
+      : "Boost your digital growth with Pixalaab Technology. Web and mobile development with custom solutions for businesses and startups.";
+
+  return {
+    title: {
+      default: title,
+      template: `%s | Pixalaab ${locale === "fr" ? "Technologie" : "Technology"}`,
+    },
+    description,
+    keywords: [
+     "développement web",
     "application mobile",
     "transformation digitale",
     "UX/UI design",
@@ -72,87 +100,75 @@ export const metadata: Metadata = {
     "SEO optimization",
     "AI integration",
     "cloud digital solutions",
-  ],
-
-  authors: [{ name: "Pixalaab Technologie", url: "https://pixaalab.com" }],
-  creator: "Pixalaab Technologie",
-  publisher: "Pixalaab Technologie",
-  generator: "Next.js SEO Optimized",
-
-  metadataBase: new URL("https://pixaalab.com"),
-
-  openGraph: {
-    type: "website",
-    locale: "fr_FR",
-    url: "https://pixaalab.com",
-    title: "Pixalaab Technologie - Experts en Développement Web & Mobile",
-    description:
-      "Boostez votre croissance digitale avec Pixalaab Technologie. Développement web, mobile et solutions sur mesure pour entreprises et startups.",
-    siteName: "Pixalaab Technologie",
-    images: [
-      {
-        url: "/images/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Pixalaab Technologie - Agence digitale au Bénin",
-      },
     ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Pixalaab Technologie | Agence Digitale et Développement Web",
-    description:
-      "Nous concevons des solutions web et mobiles sur mesure pour votre croissance digitale.",
-    images: ["/icons/logo.jpg"],
-    creator: "@pixalaab",
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
+    authors: [{ name: "Pixalaab Technologie", url: baseUrl }],
+    creator: "Pixalaab Technologie",
+    publisher: "Pixalaab Technologie",
+    generator: "Next.js",
+    metadataBase: new URL(baseUrl),
+    openGraph: {
+      type: "website",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+      url,
+      title: ogTitle,
+      description: ogDescription,
+      siteName: "Pixalaab Technologie",
+      images: [
+        {
+          url: "/opengraph-image.png",
+          width: 1200,
+          height: 630,
+          alt: "Pixalaab Technologie",
+        },
+      ],
+      alternateLocale: locale === "fr" ? "en_US" : "fr_FR",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: ogDescription,
+      images: ["/opengraph-image.png"],
+      creator: "@pixalaab",
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-
-  icons: {
-    icon: [
-      { url: "/icons/logo.jpg", sizes: "32x32", type: "image/png" },
-      { url: "/icons/logo.jpg", sizes: "64x64", type: "image/png" },
-    ],
-    apple: [
-      { url: "/icons/logo.jpg", sizes: "180x180", type: "image/png" },
-    ],
-  },
-
-  manifest: "/manifest.json",
-
-  alternates: {
-    canonical: "https://pixaalab.com",
-    languages: {
-      fr: "https://pixaalab.com/fr",
-      en: "https://pixaalab.com/en",
+    icons: {
+      icon: [
+        { url: "/icons/favicon/favicon.ico", sizes: "any" },
+        { url: "/icons/favicon/favicon.svg", type: "image/svg+xml" },
+      ],
+      apple: [
+        { url: "/icons/favicon/apple-touch-icon.png", sizes: "180x180" },
+      ],
     },
-  },
-
-  verification: {
-    google: "hE3PiAkjwB9idFceb22fGEPmWyswacczBA3yZ5u",
-  },
-
-  category: "Technology",
-  other: {
-    "geo.region": "BJ-LI",
-    "geo.placename": "Cotonou",
-    "og:locale:alternate": "en_US",
-    "theme-color": "#0f172a",
-  },
-};
+    manifest: "/manifest.json",
+    alternates: {
+      canonical: url,
+      languages: {
+        fr: `${baseUrl}/fr`,
+        en: `${baseUrl}/en`,
+      },
+    },
+    verification: {
+      google: "hE3PiAkjwB9idFceb22fGEPmWyswacczBA3yZ5u",
+    },
+    category: "Technology",
+    other: {
+      "geo.region": "BJ-LI",
+      "geo.placename": "Cotonou",
+      "theme-color": "#FF3130",
+    },
+  };
+}
 
 export default async function ModernLayout({
   children,
