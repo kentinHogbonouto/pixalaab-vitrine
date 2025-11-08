@@ -1,163 +1,157 @@
 import type { Metadata } from "next";
 import "./[locale]/globals.css";
 
-export const metadata: Metadata = {
-  title: { 
-    default: "Pixalaab Technologie - Développement Web, Applications Mobiles & Transformation Digitale",
-    template: "%s - Pixalaab Technologie - Développement Web, Applications Mobiles & Transformation Digitale"
-  },
-  description:
-    "Transformez votre vision digitale en réalité avec Pixalaab Technologie. Développement web, applications mobiles, transformation digitale et UX/UI design pour propulser votre entreprise.",
-  keywords: [
-    // 🔹 Mots-clés principaux
-    "développement web",
-    "application mobile",
-    "transformation digitale",
-    "UX/UI design",
-    "agence digitale",
-    "développement logiciel",
-    "création site web",
-    "application iOS Android",
-    "Pixalaab",
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
 
-    // 🔹 Services proposés
-    "création d’application mobile",
-    "site e-commerce sur mesure",
-    "développement front-end et back-end",
-    "intégration API",
-    "développement React",
-    "développement Next.js",
-    "développement Flutter",
-    "optimisation SEO",
-    "hébergement web professionnel",
-    "maintenance applicative",
-    "design d’interface utilisateur",
-    "expérience utilisateur",
-    "marketing digital",
-    "stratégie numérique",
-    "solutions cloud",
-    "automatisation d’entreprise",
-    "création de tableau de bord",
-    "gestion de données",
-    "intelligence artificielle",
-    "modernisation de systèmes",
-    "développement sur mesure",
+  const baseUrl = "https://pixaalab.com";
+  const url = locale === "fr" ? baseUrl : `${baseUrl}/${locale}`;
 
-    // 🔹 Secteurs / contextes
-    "entreprises béninoises",
-    "entreprises international",
-    "startup africaine",
-    "startup international",
-    "agence web au Bénin",
-    "développement web en Afrique",
-    "digitalisation des entreprises",
-    "services informatiques professionnels",
-    "conseil en transformation digitale",
+  const title =
+    locale === "fr"
+      ? "Pixalaab Technologie - Développement Web, Applications Mobiles & Transformation Digitale"
+      : "Pixalaab Technology - Web Development, Mobile Apps & Digital Transformation";
 
-    // 🔹 Valeur ajoutée
-    "innovation technologique",
-    "solutions numériques innovantes",
-    "expertise digitale",
-    "technologie moderne",
-    "agence de communication digitale",
-    "transformation numérique complète",
-    "développement rapide et sécurisé",
-    "solutions adaptées aux PME",
-    "performance et scalabilité",
-    "accompagnement digital stratégique",
+  const description =
+    locale === "fr"
+      ? "Pixalaab Technologie est votre partenaire digital pour le développement web, mobile et la transformation numérique. Nous aidons les entreprises à innover, automatiser et réussir en ligne grâce à des solutions sur mesure et performantes."
+      : "Pixalaab Technology is your digital partner for web development, mobile apps and digital transformation. We help businesses innovate, automate and succeed online with custom and high-performance solutions.";
 
-    // 🔹 International (EN)
-    "web development",
-    "mobile app development",
-    "digital transformation",
-    "UX/UI design agency",
-    "software development",
-    "custom website",
-    "iOS Android app",
-    "SEO optimization",
-    "cloud solutions",
-    "AI integration",
-    "startup support",
-  ],
+  const ogTitle =
+    locale === "fr"
+      ? "Pixalaab Technologie - Experts en Développement Web & Mobile"
+      : "Pixalaab Technology - Web & Mobile Development Experts";
 
-  authors: [{ name: "Pixalaab Technologie" }],
-  creator: "Pixalaab Technologie",
-  publisher: "Pixalaab Technologie",
+  const ogDescription =
+    locale === "fr"
+      ? "Boostez votre croissance digitale avec Pixalaab Technologie. Développement web, mobile et solutions sur mesure pour entreprises et startups."
+      : "Boost your digital growth with Pixalaab Technology. Web and mobile development with custom solutions for businesses and startups.";
 
-  metadataBase: new URL("https://pixaalab.com"),
+  return {
+    title: {
+      default: title,
+      template: `%s | Pixalaab ${locale === "fr" ? "Technologie" : "Technology"}`,
+    },
+    description,
+    keywords: [
+      "développement web",
+      "application mobile",
+      "transformation digitale",
+      "UX/UI design",
+      "agence digitale",
+      "développement logiciel",
+      "site web sur mesure",
+      "application iOS Android",
+      "Pixalaab Technologie",
+      "agence web au Bénin",
+      "développement web en Afrique",
+      "solutions digitales Bénin",
+      "entreprise de technologie",
+      "digitalisation PME",
 
-  openGraph: {
-    type: "website",
-    locale: "fr_FR",
-    url: "https://pixaalab.com",
-    title: "Pixalaab Technologie - Votre Partenaire Digital",
-    description:
-      "Experts en développement web, mobile et transformation digitale. Nous créons des solutions innovantes pour accélérer votre croissance.",
-    siteName: "Pixalaab Technologie",
-    images: [
-      {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Pixalaab Technologie - Agence de développement digital",
-      },
+      // 🔹 Services
+      "création d’application mobile",
+      "site e-commerce",
+      "intégration API",
+      "développement React Next.js Flutter",
+      "SEO et marketing digital",
+      "hébergement web sécurisé",
+      "maintenance applicative",
+      "intelligence artificielle appliquée",
+      "développement sur mesure",
+      "automatisation et cloud computing",
+
+      // 🔹 Valeur ajoutée
+      "expertise technologique",
+      "innovation numérique",
+      "solutions digitales performantes",
+      "transformation numérique complète",
+      "accompagnement stratégique digital",
+      "optimisation SEO & SEA",
+      "développement durable numérique",
+
+      // 🔹 International
+      "web development",
+      "mobile app development",
+      "digital transformation",
+      "software development agency",
+      "custom web solutions",
+      "SEO optimization",
+      "AI integration",
+      "cloud digital solutions",
     ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Pixalaab Technologie - Développement Digital",
-    description:
-      "Solutions web & mobile innovantes pour votre transformation digitale.",
-    images: ["/icons/logo.jpg"],
-    creator: "@pixalaab",
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    authors: [{ name: "Pixalaab Technologie", url: baseUrl }],
+    creator: "Pixalaab Technologie",
+    publisher: "Pixalaab Technologie",
+    generator: "Next.js",
+    metadataBase: new URL(baseUrl),
+    openGraph: {
+      type: "website",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+      url,
+      title: ogTitle,
+      description: ogDescription,
+      siteName: "Pixalaab Technologie",
+      images: [
+        {
+          url: "/opengraph-image.png",
+          width: 1200,
+          height: 630,
+          alt: "Pixalaab Technologie",
+        },
+      ],
+      alternateLocale: locale === "fr" ? "en_US" : "fr_FR",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: ogDescription,
+      images: ["/opengraph-image.png"],
+      creator: "@pixalaab",
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-
-  icons: {
-    icon: [
-      { url: "/icons/logo.jpg", sizes: "16x16", type: "image/png" },
-      { url: "/icons/logo.jpg", sizes: "32x32", type: "image/png" },
-    ],
-    apple: [
-      { url: "/icons/logo.jpg", sizes: "180x180", type: "image/png" },
-    ],
-  },
-
-  manifest: "/manifest.json",
-
-  alternates: {
-    canonical: "https://pixaalab.com",
-    languages: {
-      fr: "https://pixaalab.com/fr",
-      en: "https://pixaalab.com/en",
+    icons: {
+      icon: [
+        { url: "/icons/favicon/favicon.ico", sizes: "any" },
+        { url: "/icons/favicon/favicon.svg", type: "image/svg+xml" },
+      ],
+      apple: [
+        { url: "/icons/favicon/apple-touch-icon.png", sizes: "180x180" },
+      ],
     },
-  },
-
-  verification: {
-    google: "votre-code-google-search-console",
-  },
-
-  category: "Technology",
-
-  other: {
-    "geo.region": "BJ-LI",
-    "geo.placename": "Cotonou",
-    // OpenGraph alternates for crawlers that read meta property directly
-    "og:locale:alternate": "en_US",
-  },
-};
+    manifest: "/manifest.json",
+    alternates: {
+      canonical: url,
+      languages: {
+        fr: `${baseUrl}/fr`,
+        en: `${baseUrl}/en`,
+      },
+    },
+    // verification: {
+    //   google: "hE3PiAkjwB9idFceb22fGEPmWyswacczBA3yZ5u",
+    // },
+    category: "Technology",
+    other: {
+      "geo.region": "BJ-LI",
+      "geo.placename": "Cotonou",
+      "theme-color": "#FF3130",
+    },
+  };
+}
 
 export default async function ModernLayout({
   children,
