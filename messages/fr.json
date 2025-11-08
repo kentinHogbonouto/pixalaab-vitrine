@@ -211,5 +211,14 @@
         "description": "Site vitrine corporate avec présentation claire des activités et prise de contact facilitée."
       }
     }
+  },
+  "notFound": {
+    "metaTitle": "Page non trouvée - 404 | Pixalaab Technologie",
+    "metaDescription": "La page que vous recherchez n'existe pas. Retournez à l'accueil pour découvrir nos services de développement web et mobile.",
+    "title": "Page non trouvée",
+    "description": "Désolé, la page que vous recherchez n'existe. Utilisez les liens ci-dessous pour naviguer sur notre site.",
+    "backHome": "Retour à l'accueil",
+    "goBack": "Retour en arrière",
+    "suggestions": "Vous cherchez peut-être :"
   }
 }

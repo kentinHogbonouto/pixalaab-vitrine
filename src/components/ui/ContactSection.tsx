@@ -102,9 +102,9 @@ export function ContactSection() {
             <MessageCircle className="w-8 h-8 text-white" />
           </motion.div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
             {t('contact.title')}
-          </h2>
+          </h1>
           <p className="text-sm sm:text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             {t('contact.subtitle')}
           </p>

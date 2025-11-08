@@ -89,9 +89,9 @@ export function RealizationsSection() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="mt-2 text-2xl sm:text-4xl lg:text-6xl font-bold">
+            <h1 className="mt-2 text-2xl sm:text-4xl lg:text-6xl font-bold">
               {t('realizations.title')}
-            </h2>
+            </h1>
             <p className="mt-2 text-sm sm:text-lg lg:text-xl max-w-2xl mx-auto text-slate-600">
               {t('realizations.subtitle')}
             </p>
