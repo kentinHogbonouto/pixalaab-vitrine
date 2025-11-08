@@ -1,5 +1,3 @@
-"use client";
-
 import { HeroSection } from "@/components/ui/HeroSection";
 import { ServicesSection } from "@/components/ui/ServicesSection";
 import { WhyChooseUsSection } from "@/components/ui/WhyChooseUsSection";
