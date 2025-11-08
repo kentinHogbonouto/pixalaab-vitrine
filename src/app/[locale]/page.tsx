@@ -6,7 +6,6 @@ import { WhyChooseUsSection } from "@/components/ui/WhyChooseUsSection";
 import { ContactSection } from "@/components/ui/ContactSection";
 import { RealizationsSection } from "@/components/ui/RealizationsSection";
 
-
 export default function LandingPage() {
   return (
     <main className="min-h-screen">

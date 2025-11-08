@@ -244,5 +244,14 @@
     "select-option": "Select an option",
     "action-failed": "An error occurred.",
     "apply": "Apply"
+  },
+  "notFound": {
+    "metaTitle": "Page Not Found - 404 | Pixalaab Technology",
+    "metaDescription": "The page you are looking for does not exist. Return to the homepage to discover our web and mobile development services.",
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for does not exist. Use the links below to navigate our site.",
+    "backHome": "Back to Home",
+    "goBack": "Go Back",
+    "suggestions": "You might be looking for:"
   }
 }
